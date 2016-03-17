@@ -1,0 +1,4 @@
+repo.name: mynewt_hc-304
+repo.versions:
+    "0.0.0": "master"
+    "0-latest": "0.0.0"
