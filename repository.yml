@@ -1,4 +1,4 @@
-repo.name: mynewt_hc-304
+repo.name: mynewt_hc-sr04
 repo.versions:
     "0.0.0": "master"
     "0-latest": "0.0.0"
