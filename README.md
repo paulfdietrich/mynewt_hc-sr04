@@ -53,7 +53,7 @@ the library.
 ```
 Initializes the library to talk to the sensor.  The sensor is expected
 to be attached to two port pins, which you must define in your BSP.
-This must be called once.  A good place is 
+This must be called once.  A good place is `main` before you start the OS.
 
 ## hcsr04_measure_distance
 
