@@ -7,27 +7,27 @@ A simple test library to connect a HC-sr04 ultrasonic distance sensor the mynewt
 Add the following repository descriptor to your `project.yml` file
 
 ```
-repository.mynewt_hc-sr04:
-    type: github
-    vers: 0-latest
-    user: paulfdietrich
-    repo: mynewt_hc-sr04
+    repository.mynewt_hc-sr04:
+        type: github
+        vers: 0-latest
+        user: paulfdietrich
+        repo: mynewt_hc-sr04
 ```
 
 and include the following in your `project.repositories` variable
 
 ```
-project.repositories:
-    - apache-mynewt-core
-    - mynewt_hc-sr04
+    project.repositories:
+        - apache-mynewt-core
+        - mynewt_hc-sr04
 ```
 
 Add the following dependency to your application's (or whatever uses this library) `pkg.yml` file.
 
 ```
-pkg.deps:
-    ...
-    - "@mynewt_hc-sr04/libs/hc-sr04"
+    pkg.deps:
+        ...
+        - "@mynewt_hc-sr04/libs/hc-sr04"
 ```
     
 # Limitations
@@ -49,7 +49,7 @@ the library.
 
 
 ```
-void hcsr04_init(void);
+    void hcsr04_init(void);
 ```
 Initializes the library to talk to the sensor.  The sensor is expected
 to be attached to two port pins, which you must define in your BSP.
@@ -61,10 +61,24 @@ Return the distance in centimeters of the object near your HC-SR04.  If
 a reading is not possible or the object is too far away, `-1` is returned.
 
 ```
-int hcsr04_measure_distance(void);
+    int hcsr04_measure_distance(void);
 ```
 
+This function blocks while taking a reading from the device.  
 
 ## Unresolved Externals
 
-You will get several unresolved externals 
+You will get several unresolved externals when building this. Ensure 
+that your BSP defines the following variables:
+
+```
+    int hcsr04_trigger_pin = MY_TRIGGER_PIN;
+    int hcsr04_echo_pin = MY_ECHO_PIN;
+```
+
+Of course, replace MY_XXX with the trigger and echo pins you are using in
+your project.
+
+
+
+
