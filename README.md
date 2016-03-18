@@ -22,3 +22,8 @@ project.repositories:
     - mynewt_hc-sr04
 ```
 
+Add the following dependency to your application's (or whatever uses this library) `pkg.yml` file.
+
+```
+```
+
